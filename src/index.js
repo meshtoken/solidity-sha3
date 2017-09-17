@@ -38,3 +38,8 @@ export const sha3num = (value, size = DEFAULT_SIZE) => {
   const paddedArgs = encodeNum(size)(value)
   return web3.sha3(paddedArgs, { encoding: 'hex' })
 }
+
+/** Export encoding with padding (string that is hashed) */
+export const paddedArgs = (...args) => {
+    return args.map(encodeWithPadding(DEFAULT_SIZE)).join('')
+}
